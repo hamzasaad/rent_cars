@@ -1,0 +1,75 @@
+<!-- Footer Area Start -->
+<footer class="gauto-footer-area">
+   <div class="footer-top-area">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-4">
+               <div class="single-footer">
+                  <div class="footer-logo">
+                     <a href="#">
+                        <img src="assets/img/footer-logo.png" alt="footer-logo" />
+                     </a>
+                  </div>
+                  <p>Horem Ipsum passages, and more recently with desktop publishing software like aldus pageMaker
+                     including versions of all the Rorem Ipsum generators.</p>
+                  <div class="footer-address">
+                     <h3>Head office</h3>
+                     <p>125 Big fella St. Road, <span>kairouan, Hi 95512824</span></p>
+                     <ul>
+                        <li>Phone: 95512824 </li>
+                        <li>Email: saadouna.hamzaaa@gmail.com</li>
+                        <li>Office Time: 9AM- 4PM</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="single-footer quick_links">
+                  <h3>Quick Links</h3>
+                  <ul class="quick-links">
+                     <li><a routerLink="about">About us</a></li>
+                     <li><a routerLink="serve">Our Services</a></li>
+                     <li><a routerLink="contact">Contact us</a></li>
+                  </ul>
+                  <ul class="quick-links">
+                     <li><a routerLink="blog">latest News</a></li>
+                  </ul>
+               </div>
+               <div class="single-footer newsletter_box">
+                  <h3>newsletter</h3>
+                  <form>
+                     <input type="email" placeholder="Email Address" />
+                     <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                  </form>
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="single-footer">
+                  <h3>Recent post</h3>
+                  <ul>
+                     <li>
+                        <div class="single-footer-post" *ngFor="let b of blog ">
+                           <div class="footer-post-image">
+                              <a href="#">
+                                 <img src="http://localhost:8080/users/files/{{b.image}}" alt="footer post" />
+                              </a>
+                           </div>
+                           <div class="footer-post-text">
+                              <h3>
+                                 <a href="#">
+                                    Revealed: {{b.title}}
+                                 </a>
+                              </h3>
+                              <p>Posted on: Jan 12, 2019</p>
+                           </div>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   
+</footer>
+<!-- Footer Area End -->

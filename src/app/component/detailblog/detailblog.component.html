@@ -1,0 +1,82 @@
+      <!-- Breadcromb Area Start -->
+      <section class="gauto-breadcromb-area section_70">
+        <div class="container">
+           <div class="row">
+              <div class="col-md-12">
+                 <div class="breadcromb-box">
+                    <h3>Blog details</h3>
+                    <ul>
+                       <li><i class="fa fa-home"></i></li>
+                       <li><a href="index.html">Home</a></li>
+                       <li><i class="fa fa-angle-right"></i></li>
+                       <li>single blog</li>
+                    </ul>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </section>
+     <!-- Breadcromb Area End -->
+      
+      
+     <!-- Blog Page Area Start -->
+     <section class="gauto-blog-page-area section_70">
+        <div class="container">
+           <div class="row">
+              <div class="col-lg-8">
+                 <div class="blog-page-left single-blog-page">
+                    <div class="single-blog" >
+                       <div class="blog-image">
+                          <a href="#">
+                          <img src="http://localhost:8080/users/files/{{blog.image}}"  alt="blog 1">
+                          </a>
+                       </div>
+                       <div class="blog-text">
+                          <h3>{{blog.title}}</h3>
+                          <ul>
+                             <li><i class="fa fa-user-o"></i> <a href="#">Bizkit</a></li>
+                             <li><i class="fa fa-calendar"></i><a href="#">27 Aug, 2019</a></li>
+                             <li><i class="fa fa-comments-o"></i><a href="#">({{comments.length}}) Comments</a></li>
+                          </ul>
+                          <p>{{blog.description}}</p>
+                          
+                       </div>
+                       <div class="gauto-comment-list">
+                          <div class="comment-group-title">
+                             <h2>{{comments.length}} comment</h2>
+                          </div>
+                          <div class="single-comment-item" *ngFor="let c of comments ">
+                             <div class="single-comment-box">
+                                <div class="main-comment">
+                                   <div class="author-image">
+                                      <img src="http://localhost:8080/users/files/{{c.client.image}}" alt="author">
+                                   </div>
+                                   <div class="comment-text">
+                                      <div class="comment-info">
+                                         <h4>{{c.client.firstName}}{{c.client.lastName}}</h4>
+                                         <p>{{c.createdAt}}</p>
+                                         
+                                      </div>
+                                      <div class="comment-text-inner">
+                                         <p>{{c.sujet}}</p>
+                                      </div>
+                                   </div>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                       <div class="gauto-leave-comment">
+                          <h2>Leave a comment</h2>
+                          <p>Your must sing-in to make or comment a post</p>
+                          <form [formGroup]="formcomment" (ngSubmit)="addCommentaire()">
+                             <textarea class="comment" placeholder="Comment..." formControlName="sujet"></textarea>
+                             <button type="submit" class="gauto-theme-btn">post comment</button>
+                          </form>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </section>
+     <!-- Blog Page Area End -->

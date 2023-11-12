@@ -1,0 +1,114 @@
+<!-- Breadcromb Area Start -->
+<section class="gauto-breadcromb-area section_70">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="breadcromb-box">
+               <h3>Register Page</h3>
+               <ul>
+                  <li><i class="fa fa-home"></i></li>
+                  <li><a href="index.html">Home</a></li>
+                  <li><i class="fa fa-angle-right"></i></li>
+                  <li>Register</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Breadcromb Area End -->
+<!-- Login Area Start -->
+<section class="gauto-login-area section_70">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12" >
+            <div class="login-box">
+               <div class="login-page-heading">
+                  <i class="fa fa-key"></i>
+                  <h3>sign Up</h3>
+               </div>
+               <form [formGroup]="formClient" (ngSubmit)="onSubmit()">
+                  <div class="account-form-group">
+                     <input type="text" placeholder="first name *" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }">
+                     <i class="fa fa-user"></i>
+                     <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+                        <div  *ngIf="f['firstName'].errors['required']">first name is required</div>
+                    </div>
+                  </div>
+                  <div class="account-form-group">
+                     <input type="text" placeholder="last name" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }">
+                     <i class="fa fa-user"></i>
+                     <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+                        <div *ngIf="f['lastName'].errors['required']">last name is required</div>
+                    </div>
+                  </div>
+                  <div class="account-form-group">
+                     <input type="text" placeholder="Username" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }">
+                     <i class="fa fa-user"></i>
+                     <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                        <div *ngIf="f['username'].errors['required']">username is required</div>
+                    </div>
+                  </div>
+                  <div class="account-form-group">
+                     <input type="text" placeholder="@email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+                     <i class="fa fa-mail"></i>
+                     <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                        <div *ngIf="f['email'].errors['required']">Email is required</div>
+                        <div *ngIf="f['email'].errors['email']">Email must be a valid email address</div>
+                    </div>
+                  </div>
+                  <div class="account-form-group">
+                     <input type="password" placeholder="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+                     <i class="fa fa-lock"></i>
+                     <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                        <div *ngIf="f['password'].errors['required']">Password is required</div>
+                        <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+                    </div>
+                  </div>
+                  <div class="account-form-group">
+                     <input type="password" placeholder="confirmPassword" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }">
+                     <i class="fa fa-lock"></i>
+                     <div *ngIf="submitted && f['confirmPassword'].errors" class="invalid-feedback">
+                        <div *ngIf="f['confirmPassword'].errors['required']">Confirm Password is required</div>
+                        <div *ngIf="f['confirmPassword'].errors['mustMatch']">Passwords must match</div>
+                    </div>
+                  </div>
+                  <div class="account-form-group">
+                     <input type="text" placeholder="adress" formControlName="adress" [ngClass]="{ 'is-invalid': submitted && f['adress'].errors }">
+                     <i class="fa fa-user"></i>
+                     <div *ngIf="submitted && f['adress'].errors" class="invalid-feedback">
+                        <div *ngIf="f['adress'].errors['required']">adress is required</div>
+                    </div>
+                  </div>
+                  <div class="account-form-group">
+                     <input type="text" placeholder="cin client *" formControlName="cin_client" [ngClass]="{ 'is-invalid': submitted && f['cin_client'].errors }">
+                     <i class="fa fa-user"></i>
+                     <div *ngIf="submitted && f['cin_client'].errors" class="invalid-feedback">
+                        <div *ngIf="f['cin_client'].errors['required']">Password is required</div>
+                        <div *ngIf="f['cin_client'].errors['minlength']">Password must be at least 8 characters</div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                     <label class="form-label">Upload your Image</label>
+                     <input type="file" formControlName="image" class="form-control form-control-lg" class="form-control"
+                        (change)="handelFileInput($event)">
+                  </div>
+                  <div class="remember-row">
+                     <p class="checkbox remember signup">
+                        <input class="checkbox-spin" type="checkbox" id="Freelance">
+                        <label for="Freelance"><span></span>accept terms & condition</label>
+                     </p>
+                  </div>
+                  <p>
+                     <button  class="gauto-theme-btn" >Register now</button>
+                  </p>
+               </form>
+               <div class="login-sign-up">
+                  <a routerLink="/login">Already have an account?</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Login Area End -->

@@ -1,0 +1,51 @@
+      <!-- Breadcromb Area Start -->
+      <section class="gauto-breadcromb-area section_70">
+        <div class="container">
+           <div class="row">
+              <div class="col-md-12">
+                 <div class="breadcromb-box">
+                    <h3>All Service</h3>
+                    <ul>
+                       <li><i class="fa fa-home"></i></li>
+                       <li><a href="index.html">Home</a></li>
+                       <li><i class="fa fa-angle-right"></i></li>
+                       <li>All Service</li>
+                    </ul>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </section>
+     <!-- Breadcromb Area End -->
+      
+      
+     <!-- Service Area Start -->
+     <section class="gauto-service-area service-page-area section_70">
+        <div class="container">
+           <div class="row">
+              <div class="col-md-12">
+                 <div class="site-heading">
+                    <h4>see our</h4>
+                    <h2>Latest Services</h2>
+                 </div>
+              </div>
+           </div>
+           <div class="row" >
+              <div class="col-md-4" *ngFor="let s of service  | paginate: { itemsPerPage: 6, currentPage: p }">
+                 <div class="single-service">
+                    <span class="service-number">01 </span>
+                    <div class="service-icon">
+                       <img src="http://localhost:8080/users/files/{{s.image}}" alt="city trasport" />
+                    </div>
+                    <div class="service-text">
+                       <a >
+                          <h3>{{s.title}}</h3>
+                       </a>
+                       <p>{{s.description}}</p>
+                    </div>
+                 </div>
+              </div>      
+           </div>
+        </div>
+     </section>
+     <!-- Service Area End -->

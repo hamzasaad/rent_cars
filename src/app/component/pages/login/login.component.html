@@ -1,0 +1,68 @@
+<!-- Breadcromb Area Start -->
+<section class="gauto-breadcromb-area section_70">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="breadcromb-box">
+               <h3>Login Page</h3>
+               <ul>
+                  <li><i class="fa fa-home"></i></li>
+                  <li><a href="#">Home</a></li>
+                  <li><i class="fa fa-angle-right"></i></li>
+                  <li>Login</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Breadcromb Area End -->
+<!-- Login Area Start -->
+<section class="gauto-login-area section_70">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="login-box">
+               <div class="login-page-heading">
+                  <i class="fa fa-key"></i>
+                  <h3>sign in</h3>
+               </div>
+               <form [formGroup]="formLogin" (ngSubmit)="onLogin()">
+                  <div class="account-form-group">
+                     <input type="text" placeholder="Username or Email" formControlName="username"
+                        [ngClass]="{ 'is-invalid': submitted && f['username'].errors }">
+                     <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                        <div *ngIf="f['username'].errors['required']">username is required</div>
+                     </div>
+                     <i class="fa fa-user"></i>
+                  </div>
+                  <div class="account-form-group" style="margin-top: 30px;">
+                     <input type="password" placeholder="Password" formControlName="password"
+                        [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+                     <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                        <div *ngIf="f['password'].errors['required']">password is required</div>
+                     </div>
+                     <i class="fa fa-lock"></i>
+                  </div>
+                  <div class="remember-row">
+                     <p class="lost-pass">
+                        <a href="#"></a>
+                     </p>
+                     <p class="checkbox remember">
+                        <input class="checkbox-spin" type="checkbox" id="Freelance">
+                        <label for="Freelance"><span></span>Keep Me Signed In</label>
+                     </p>
+                  </div>
+                  <p>
+                     <button type="submit" class="gauto-theme-btn" (click)="onLogin()">Login now</button>
+                  </p>
+               </form>
+               <div class="login-sign-up">
+                  <a routerLink="/register">Do you need an account?</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Login Area End -->

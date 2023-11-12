@@ -1,0 +1,102 @@
+<!-- Breadcromb Area Start -->
+<section class="gauto-breadcromb-area section_70">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="breadcromb-box">
+                <h3>Shopping Cart</h3>
+                <ul>
+                   <li><i class="fa fa-home"></i></li>
+                   <li><a href="index.html">Home</a></li>
+                   <li><i class="fa fa-angle-right"></i></li>
+                   <li>Shopping Cart</li>
+                </ul>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <!-- Breadcromb Area End -->
+  
+  
+ <!-- Cart Page Start -->
+ <section class="gauto-cart-page-area section_70">
+    <div class="container">
+       <div class="row">
+          <div class="col-lg-8">
+             <div class="cart-table-left">
+                <h3>Shopping Cart</h3>
+                <div class="table-responsive">
+                   <table class="table">
+                      <thead>
+                         <tr>
+                            <th>Preview</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                         <tr class="shop-cart-item"  *ngFor="let product of items">
+                            <td class="gauto-cart-preview">
+                               <a href="#">
+                               <img src="http://localhost:8080/users/files/{{product.image}}" alt="cart-1">
+                               </a>
+                            </td>
+                            <td class="gauto-cart-product">
+                               <a href="#">
+                                  <p>{{product.name}}</p>
+                               </a>
+                            </td>
+                            <td class="gauto-cart-price">
+                               <p>{{product.prix}}$</p>
+                            </td>
+                            <td class="gauto-cart-quantity">
+                               <input type="number" value="1" [(ngModel)]="product.currentQuantity" name="qty_user">
+                            </td>
+                            <td class="gauto-cart-total">
+                               <p>${{product.prix * product.currentQuantity}}</p>
+                            </td>
+                            <td class="gauto-cart-close">
+                               <a (click)="removeItem(product)"><i class="fa fa-times" ></i></a>
+                            </td>
+                         </tr>
+                      </tbody>
+                   </table>
+                </div>
+                <div class="cart-clear">
+                   <a href="#">clear cart</a>
+                   <a routerLink="/product">update cart</a>
+                </div>
+             </div>
+          </div>
+          <div class="col-lg-4">
+             <div class="order-summury-box">
+                <h3>Order Summury</h3>
+                <table >
+                   <tbody >
+                      <tr >
+                         <td>Cart Subtotal</td>
+                         <td>${{gettotal()}}</td>
+                      </tr>
+                      <tr>
+                         <td>Shipping and Handling</td>
+                         <td>Free Shipping</td>
+                      </tr>
+                      <tr>
+                         <td>Order Total</td>
+                         <td> ${{gettotal()}}</td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+             <div class="checkout-action">
+                <a (click)="addOrder()" class="gauto-btn">Proceed to checkout</a>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+ <!-- Cart Page End -->

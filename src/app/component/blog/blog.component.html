@@ -1,0 +1,55 @@
+<!-- Breadcromb Area Start -->
+<section class="gauto-breadcromb-area section_70">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcromb-box">
+                    <h3>Blog</h3>
+                    <ul>
+                        <li><i class="fa fa-home"></i></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><i class="fa fa-angle-right"></i></li>
+                        <li>Blog</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcromb Area End -->
+
+
+<!-- Blog Page Area Start -->
+<section class="gauto-blog-page-area section_70">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="blog-page-left">
+
+                    <div class="single-blog" *ngFor="let b of blog | paginate: { itemsPerPage: 8, currentPage: p}">
+                        <div class="blog-image">
+                            <a>
+                                <img src="http://localhost:8080/users/files/{{b.image}}" alt="blog 1">
+                            </a>
+                        </div>
+                        <div class="blog-text">
+                            <h3><a >{{b.title}}</a></h3>
+                            <ul>
+                                <li><i class="fa fa-user-o"></i> <a href="#">Bizkit</a></li>
+                                <li><i class="fa fa-calendar"></i><a href="#">27 Aug, 2019</a></li>
+                                <li><i class="fa fa-comments-o"></i><a href="#">(05) Comments</a></li>
+                            </ul>
+                            <p>{{b.description}}</p>
+                            <a routerLink="/detailblog/{{b.id}}" class="gauto-btn">read more</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="pagination-box-row">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Page Area End -->

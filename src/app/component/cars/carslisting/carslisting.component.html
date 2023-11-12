@@ -1,0 +1,118 @@
+<!-- Breadcromb Area Start -->
+<section class="gauto-breadcromb-area section_70">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="breadcromb-box">
+               <h3>Car Listing</h3>
+               <ul>
+                  <li><i class="fa fa-home"></i></li>
+                  <li><a href="index.html">Home</a></li>
+                  <li><i class="fa fa-angle-right"></i></li>
+                  <li>car listing</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Breadcromb Area End -->
+
+
+<!-- Car Listing Area Start -->
+<section class="gauto-car-listing section_70">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-4">
+            <div class="car-list-left">
+               <div class="sidebar-widget">
+                  <form>
+                     Date Depart
+                     <p>
+                        <input id="reservation_date" name="reservation_date" placeholder="Date depart"
+                           data-select="datepicker" type="date" (blur)="onBlurEvent($event)">
+                     </p>
+                     <p>
+                        <button type="submit" (click)="Recherche(dete1)" class="gauto-theme-btn">Find Car</button>
+                     </p>
+                  </form>
+               </div>
+               <div class="sidebar-widget">
+                  <ul class="service-menu">
+                     <li class="active">
+                        <a href="#">All Category</a>
+                     </li>
+                     <li *ngFor="let c of category ">
+                        <a (click)=" OnChangeCategory(c)">{{c.title}}</a>
+                     </li>
+
+                  </ul>
+               </div>
+               <div class="sidebar-widget">
+                  <ul class="service-menu">
+                     <li class="active">
+                        <a href="#">All Marque</a>
+                     </li>
+                     <li *ngFor="let m of marque ">
+                        <a (click)="OnChangemarque(m)">{{m.title}}</a>
+                     </li>
+
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-8">
+            <div class="car-listing-right">
+               <div class="property-page-heading">
+                  <div class="propertu-page-head">
+                    <form>
+                       <input type="search" [(ngModel)]="searchFilter" name="key" id="searchkey" placeholder="search">
+                    </form>
+                  </div>
+                  <div class="paging_status">
+                     <p>1-10 of 25 results</p>
+                  </div>
+                  
+
+               </div>
+               <div class="car-grid-list">
+                  <div class="row" >
+                     <div class="col-md-6" *ngFor="let v of voitures  | paginate: { itemsPerPage: 6, currentPage: p } | recherche : searchFilter">
+                        <div class="single-offers">
+                           <div class="offer-image">
+                              <a href="#">
+                                 <img src="http://localhost:8080/users/files/{{v.img}}" alt="offer 1" />
+                              </a>
+                           </div>
+                           <div class="offer-text">
+                              <a href="#">
+                                 <h3>{{v.name}}</h3>
+                              </a>
+                              <h4>{{v.prix}}$<span>/ Day</span></h4>
+                              <ul>
+                                 <li><i class="fa fa-car"></i>Model:{{v.model}}</li>
+                                 <li><i class="fa fa-cogs"></i>{{v.transmition}}</li>
+                                 <li><i class="fa fa-dashboard"></i>{{v.klm}}</li>
+                              </ul>
+                              <div class="offer-action"  *ngIf="connect==false" >
+                                 <a routerLink="/login" class="offer-btn-1">Rent Car</a>
+                                 <a routerLink="/carsbooking/{{v.id}}" class="offer-btn-2">Details</a>
+                              </div>
+                              <div class="offer-action"  *ngIf="connect==true" >
+                                 <a routerLink="/rentcar/{{v.id}}" class="offer-btn-1">Rent Car</a>
+                                 <a routerLink="/carsbooking/{{v.id}}" class="offer-btn-2">Details</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="pagination-box-row">
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Car Listing Area End -->

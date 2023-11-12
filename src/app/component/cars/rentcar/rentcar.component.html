@@ -1,0 +1,190 @@
+<!-- Breadcromb Area Start -->
+<section class="gauto-breadcromb-area section_70">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="breadcromb-box">
+               <h3>Car Booking</h3>
+               <ul>
+                  <li><i class="fa fa-home"></i></li>
+                  <li><a href="index.html">Home</a></li>
+                  <li><i class="fa fa-angle-right"></i></li>
+                  <li>car Booking</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Breadcromb Area End -->
+
+
+<!-- Car Booking Area Start -->
+<section class="gauto-car-booking section_70">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-6">
+            <div class="car-booking-image">
+               <img src="http://localhost:8080/users/files/{{voiture.img}}" alt="car" />
+            </div>
+         </div>
+         <div class="col-lg-6">
+            <div class="car-booking-right">
+               <p class="rental-tag">rental</p>
+               <h3>{{voiture.name}}</h3>
+               <div class="price-rating">
+                  <div class="price-rent">
+                     <h4>{{voiture.prix}}$<span>/ Day</span></h4>
+                  </div>
+                  <div class="car-rating">
+                     <ul>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star-half-o"></i></li>
+                     </ul>
+                     <p>(123 rating)</p>
+                  </div>
+               </div>
+               <p> {{voiture.description}}</p>
+               <div class="car-features clearfix">
+                  <ul>
+                     <li><i class="fa fa-car"></i>Model: {{voiture.model}}</li>
+                     <li><i class="fa fa-cogs"></i>{{voiture.transmition}}</li>
+                     <li><i class="fa fa-dashboard"></i> {{voiture.klm}}</li>
+                     <li><i class="fa fa-empire"></i> {{voiture.carburant}}</li>
+                  </ul>
+                  <ul>
+                     <li><i class="fa fa-eye"></i> {{voiture.couleur}}</li>
+                     <li><i class="fa fa-lock"></i> nbr place :{{voiture.nbr_place}}</li>
+                     <li><i class="fa fa-key"></i> Remote Keyless</li>
+                     <li><i class="fa fa-desktop"></i> Rear-Seat DVD</li>
+                  </ul>
+                  <ul>
+                     <li><i class="fa fa-car"></i> Model:2017</li>
+                     <li><i class="fa fa-cogs"></i> Automatic</li>
+                     <li><i class="fa fa-dashboard"></i> 20kmpl</li>
+                     <li><i class="fa fa-empire"></i> V-6 Cylinder</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Car Booking Area End -->
+
+
+<!-- Booking Form Area Start -->
+<section class="gauto-booking-form section_70">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-8">
+            <div class="booking-form-left">
+               <div class="single-booking">
+                  <h3>Booking Detail</h3>
+                  <form [formGroup]="formDemande" (ngSubmit)="addDemande()">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <p>
+                              <input id="reservation_date" name="reservation_date" placeholder="Journey Date"
+                                 data-select="datepicker" type="date" formControlName="date_depart"
+                                 (blur)="onBlurEvent($event)"
+                                 [ngClass]="{ 'is-invalid': submitted && f['date_depart'].errors }">
+                           </p>
+                           <div *ngIf="submitted && f['date_depart'].errors" class="invalid-feedback">
+                              <div *ngIf="f['date_depart'].errors['required']"> date depart is required</div>
+                           </div>
+                           <div class="action-btn" *ngIf="this.date_debut<todaydate()">
+                              <a style="color: red;">Check date !</a>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <p data-placement="bottom" data-align="top" data-autoclose="true">
+                              <input type="time" class="form-control" placeholder="Journey Time"
+                                 formControlName="heur_depart"
+                                 [ngClass]="{ 'is-invalid': submitted && f['heur_depart'].errors }" />
+                           </p>
+                           <div *ngIf="submitted && f['heur_depart'].errors" class="invalid-feedback">
+                              <div *ngIf="f['heur_depart'].errors['required']"> heur depart is required</div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <p>
+                              <input id="reservation_date" name="reservation_date" placeholder="Journey Date"
+                                 data-select="datepicker" type="date" formControlName="date_retour"
+                                 (blur)="onEvent($event)"
+                                 [ngClass]="{ 'is-invalid': submitted && f['date_retour'].errors }">
+                           </p>
+                           <div *ngIf="submitted && f['date_retour'].errors" class="invalid-feedback">
+                              <div *ngIf="f['date_retour'].errors['required']"> heur depart is required</div>
+                           </div>
+                           
+                           <div class="action-btn" *ngIf="this.date_fin<todaydate() || this.date_fin < this.date_debut">
+                              <a style="color: red;">check date !</a>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <p data-placement="bottom" data-align="top" data-autoclose="true">
+                              <input type="time" class="form-control" placeholder="Journey Time"
+                                 formControlName="heur_retour"
+                                 [ngClass]="{ 'is-invalid': submitted && f['heur_retour'].errors }" />
+                           </p>
+                           <div *ngIf="submitted && f['heur_retour'].errors" class="invalid-feedback">
+                              <div *ngIf="f['heur_retour'].errors['required']"> heur retour is required</div>
+                           </div>
+                        </div>
+
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-4">
+            <div class="booking-right">
+               <h3>payment Method</h3>
+               <div class="gauto-payment clearfix">
+                  <div class="payment">
+                     <input value="Direct Bank Transfer" type="radio" id="ss-option" formControlName="type_payement">
+                     <label for="ss-option">Direct Bank Transfer</label>
+                     <div class="check">
+                        <div class="inside"></div>
+                     </div>
+                     <p>Make your payment directly into our bank account. Please use your Order ID as the payment
+                        reference.order won’t be shipped until the funds have cleared.</p>
+                  </div>
+                  <div class="payment">
+                     <input value="Cheque Payment" type="radio" id="f-option" formControlName="type_payement">
+                     <label for="f-option">Cheque Payment</label>
+                     <div class="check">
+                        <div class="inside"></div>
+                     </div>
+                  </div>
+                  <div class="payment">
+                     <input value="Credit Card" type="radio" id="s-option" formControlName="type_payement">
+                     <label for="s-option">Credit Card</label>
+                     <div class="check">
+                        <div class="inside"></div>
+                     </div>
+                     <img src="assets/img/master-card.jpg" alt="credit card">
+                  </div>
+                  <div class="payment">
+                     <input value="Paypal" type="radio" id="t-option" formControlName="type_payement">
+                     <label for="t-option">Paypal</label>
+                     <div class="check">
+                        <div class="inside"></div>
+                     </div>
+                     <img src="assets/img/paypal.jpg" alt="credit card">
+                  </div>
+               </div>
+
+            </div>
+         </div>
+         <div class="action-btn">
+            <a (click)="addDemande()" class="gauto-btn">Reserve Now!</a>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Booking Form Area End -->

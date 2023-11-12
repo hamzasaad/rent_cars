@@ -1,0 +1,44 @@
+<section class="gauto-driver-area section_70">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="site-heading">
+                <h4>experts</h4>
+                <h2>our members</h2>
+             </div>
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-lg-3 col-sm-6">
+             <div class="single-driver" *ngFor="let m of member">
+                <div class="driver-image">
+                   <img src="http://localhost:8080/users/files/{{m.img}}" alt="driver 1" />
+                   <div class="hover">
+                      <ul class="social-icon">
+                         <li><a href="{{m.fb}}"><i class="fa fa-facebook"></i></a></li>
+                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                         <li><a href="{{m.linkedin}}"><i class="fa fa-linkedin"></i></a></li>
+                         <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                      </ul>
+                   </div>
+                </div>
+                <div class="driver-text">
+                   <div class="driver-name">
+                      <a href="#">
+                         <h3>{{m.name}}</h3>
+                      </a>
+                      <p>{{m.description}}</p>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-md-12">
+             <div class="load-more">
+                <a href="#" class="gauto-btn">More members</a>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>

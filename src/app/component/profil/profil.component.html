@@ -1,0 +1,133 @@
+<section class="gauto-breadcromb-area section_70">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcromb-box">
+                    <h3>Car Booking</h3>
+                    <ul>
+                        <li><i class="fa fa-home"></i></li>
+                        <li><a href="#">Home</a></li>
+                        <li><i class="fa fa-angle-right"></i></li>
+                        <li>Dashboard</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-xl px-4 mt-4">
+        <!-- Account page navigation-->
+
+
+        <hr class="mt-0 mb-4">
+        <div class="row">
+            <div class="col-xl-4">
+                <!-- Profile picture card-->
+                <div class="card mb-4 mb-xl-0">
+                    <div class="card-header">Profile Picture</div>
+                    <div class="card-body text-center" [formGroup]="formCLient" (ngSubmit)="updateImage()">
+                        <!-- Profile picture image-->
+                        <img class="img-account-profile rounded-circle mb-2"
+                            src="http://localhost:8080/users/files/{{userconnect.image}}" alt="">
+                        <!-- Profile picture help block-->
+                        <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                        <!-- Profile picture upload button-->
+
+                        <button (click)="fileInput.click()"  type="button" class="gauto-theme-btn"><input
+                                style="display: none;"  type="file" formControlName="image"
+                                (change)="handelFileInput($event)" id="formFile" #fileInput>Upload new
+                            image</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8">
+                <!-- Account details card-->
+                <div class="card mb-4">
+                    <div class="card-header">Account Details</div>
+                    <div class="card-body">
+                        <form [formGroup]="formProfil" (ngSubmit)="updateProfil()">
+                            <!-- Form Group (username)-->
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputUsername" >Username </label>
+                                <input class="form-control" id="inputUsername" type="text" formControlName="username"
+                                    placeholder="Enter your username" value="username">
+                            </div>
+                            <!-- Form Row-->
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (first name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputFirstName">First name</label>
+                                    <input class="form-control" id="inputFirstName" type="text"
+                                        placeholder="Enter your first name" value="Valerie" formControlName="firstName" >
+                                </div>
+                                <!-- Form Group (last name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputLastName">Last name</label>
+                                    <input class="form-control" id="inputLastName" type="text"
+                                        placeholder="Enter your last name" value="Luna" formControlName="lastName" >
+                                </div>
+                            </div>
+                            <!-- Form Row        -->
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (organization name)-->
+                                
+                                <!-- Form Group (location)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputLocation">Adress</label>
+                                    <input class="form-control" id="inputLocation" type="text"
+                                        placeholder="Enter your location" value="San Francisco, CA" formControlName="adress">
+                                </div>
+                            </div>
+                            <!-- Form Group (email address)-->
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                                <input class="form-control" id="inputEmailAddress" type="email"
+                                    placeholder="Enter your email address" value="name@example.com" formControlName="email">
+                            </div>
+                            <!-- Form Row-->
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (phone number)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputPhone">Cin </label>
+                                    <input class="form-control" id="inputPhone" type="tel"
+                                        placeholder="Cin" value="Cin" formControlName="cin_client">
+                                </div>  
+                            </div>
+                            <!-- Save changes button-->
+                            <button class="gauto-theme-btn" type="button" (click)="updateProfil()">Save changes</button>
+                        </form>
+                    </div>
+                </div>
+                <!--<div class="card card-outline-secondary">
+                    <div class="card-header">
+                        <h3 class="mb-0">Change Password</h3>
+                    </div>
+                    <div class="card-body">
+                        <form class="form" role="form" autocomplete="off">
+                            <div class="form-group">
+                                <label for="inputPasswordOld">Current Password</label>
+                                <input type="password" class="form-control" id="inputPasswordOld" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPasswordNew">New Password</label>
+                                <input type="password" class="form-control" id="inputPasswordNew" required="">
+                                <span class="form-text small text-muted">
+                                        The password must be 8-20 characters, and must <em>not</em> contain spaces.
+                                    </span>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPasswordNewVerify">Verify</label>
+                                <input type="password" class="form-control" id="inputPasswordNewVerify" required="">
+                                <span class="form-text small text-muted">
+                                        To confirm, type the new password again.
+                                    </span>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="gauto-theme-btn">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</section>

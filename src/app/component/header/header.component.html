@@ -1,0 +1,192 @@
+<!-- Header Top Area Start -->
+<section *ngIf="connect==false" class="gauto-header-top-area">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="header-top-left">
+               <p>Need Help?: <i class="fa fa-phone"></i> Call: +216 955 12 824</p>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="header-top-right">
+               <a routerLink="/login">
+                  <i class="fa fa-key"></i>
+                  login
+               </a>
+               <a routerLink="/register">
+                  <i class="fa fa-user"></i>
+                  register
+               </a>
+               
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Header Top Area End -->
+
+<!-- Main Header Area Start -->
+<header class="gauto-main-header-area">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-3">
+            <div class="site-logo">
+               <a href="#">
+                  <img src="assets/img/logo.png" alt="gauto" />
+               </a>
+            </div>
+         </div>
+         <div class="col-lg-6 col-sm-9">
+            <div class="header-promo">
+               <div class="single-header-promo">
+                  <div class="header-promo-icon">
+                     <img src="assets/img/globe.png" alt="globe" />
+                  </div>
+                  <div class="header-promo-info">
+                     <h3>Tunisie, Kairouan</h3>
+                     <p>Kairouan City</p>
+                  </div>
+               </div>
+               <div class="single-header-promo">
+                  <div class="header-promo-icon">
+                     <img src="assets/img/clock.png" alt="clock" />
+                  </div>
+                  <div class="header-promo-info">
+                     <h3>Monday to Friday</h3>
+                     <p>9:00am - 6:00pm</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-3">
+            <div class="header-action">
+               <a href="#"><i class="fa fa-phone"></i> Request a call</a>
+            </div>
+         </div>
+      </div>
+   </div>
+</header>
+<!-- Main Header Area End -->
+<!-- Mainmenu Area Start -->
+<section class="gauto-mainmenu-area">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-9">
+            <div class="mainmenu">
+               <nav>
+                  <ul id="gauto_navigation">
+                     <li class="active"><a href="#">home</a></li>
+                     <li><a routerLink="/about">about</a></li>
+                     <li>
+                        <a href="#">Service</a>
+                        <ul>
+                           <li><a routerLink="/serve">All services</a></li>
+                           <li><a routerLink="/blog">Blog</a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#">cars</a>
+                        <ul>
+                           <li><a routerLink="/carslisting">car listing</a></li>
+                           
+                        </ul>
+                     </li>
+                     <li><a routerLink="/gallery">gallery</a></li>
+                     <li>
+                        <a href="#">Shop</a>
+                        <ul>
+                           <li><a routerLink="/product">products</a></li>
+                           
+                           <li><a routerLink="/shopingcart">Shoping Cart</a></li>
+                           
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#" *ngIf="connect==false">pages</a>
+                        <ul>
+                           <li><a routerLink="/login">login</a></li>
+                           <li><a routerLink="/register">register</a></li>
+                           <li><a routerLink="/notfound">404 not found</a></li>
+                           <li><a routerLink="/contact">contact</a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#" *ngIf="connect==true">Espace Client</a>
+                        <ul>
+                           <li><a routerLink="/contact">contact</a></li>
+                           <li><a routerLink="/profil">Dashboard</a></li>
+                           <li><a (click)="onLogout()">Logout</a></li>
+                        </ul>
+                     </li>
+                     
+
+                  </ul>
+               </nav>
+            </div>
+         </div>
+         <div class="col-lg-3 col-sm-12">
+            <div class="main-search-right">
+               <!-- Responsive Menu Start -->
+               <div class="gauto-responsive-menu"></div>
+               <!-- Responsive Menu Start -->
+
+               <!-- Cart Box Start -->
+               <div class="header-cart-box">
+                  <div class="login dropdown">
+                     <button class="dropdown-toggle cart-icon" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <span>{{items.length}}</span>
+                     </button>
+                     <div class="dropdown-menu cart-dropdown" aria-labelledby="dropdownMenu1">
+                        <ul class="product_list">
+                           <li *ngFor="let product of items">
+                              <div class="cart-btn-product">
+                                 <a class="product-remove" (click)="removeItem(product)" >
+                                    <i class="fa fa-times"></i>
+                                 </a>
+                                 <div class="cart-btn-pro-img">
+                                    <a href="#">
+                                       <img src="http://localhost:8080/users/files/{{product.image}}" alt="product" />
+                                    </a>
+                                 </div>
+                                 <div class="cart-btn-pro-cont">
+                                    <h4><a href="#">{{product.name}}</a></h4>
+                                    <p>{{product.currentQuantity}}</p>
+                                    <span class="price">
+                                       ${{product.prix}}
+                                    </span>
+                                 </div>
+                              </div>
+                           </li>
+                          
+                        </ul>
+                        <div class="cart-subtotal">
+                           <p>
+                              Subtotal :
+                              <span class="drop-total">${{gettotal()}}</span>
+                           </p>
+                        </div>
+                        <div class="cart-btn">
+                           <a routerLink="/shopingcart" class="cart-btn-1">View Cart</a>
+                           <a href="#" class="cart-btn-2">Checkout</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- Cart Box End -->
+
+               <!-- Search Box Start -->
+               <div class="search-box">
+                  <form>
+                     <input type="search" placeholder="Search">
+                     <button type="submit"><i class="fa fa-search"></i></button>
+                  </form>
+               </div>
+               <!-- Search Box End -->
+               
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Mainmenu Area End -->
